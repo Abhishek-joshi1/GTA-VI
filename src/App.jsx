@@ -119,7 +119,28 @@ function App() {
                 <img className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[65px]' src='./ps5.png' alt=''></img>
             </div>
         </div>
+        <div className='w-full h-screen px-10 flex items-center justify-center bg-black'>
+            <div className="cntnr flex text-white w-full h-[80%]">
+                <div className='limg relative w-1/2 h-full'>
+                    <img 
+                    className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'
+                    src='./imag.png' alt=''></img>
+                </div>
+                <div className="rg w-[30%]">
+                    <h1 className='text-6xl'>Still Running</h1>
+                    <h1 className='text-6xl mb-4'>Not Hunting</h1>
+                    <p className='mt-10 font-[Helvetica_Now_Display]'>
+                        GTA 6 is the highly anticipated next installment in Rockstar Games' Grand Theft Auto series. Set in a modern-day reimagining of Vice City, the game promises a vast open world, dynamic storylines, and enhanced realism. Players will experience an immersive narrative with dual protagonists and evolving missions. With improved graphics and AI, GTA 6 is expected to redefine the open-world genre.
+                    </p>
+                    <p className='font-[Helvetica_Now_Display]'>
+                        GTA 6 brings a return to Vice City with richer detail and deeper storytelling. Fans eagerly await its release, marking a new era in gaming.
+                    </p>
+                    <button className='bg-yellow-500 text-2xl text-white px-10 py-5 mt-5'>DOWNLOAD NOW</button>
+                </div>
+            </div>
+        </div>
         </div>}
+       
     </>
   )
 }
