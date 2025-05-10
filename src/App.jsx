@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import { useGSAP } from '@gsap/react'
 import { gsap } from "gsap";
+import 'remixicon/fonts/remixicon.css'
 
 function App() {
 
@@ -29,11 +30,27 @@ function App() {
                 onComplete: () => {
                     document.querySelector(".svg").remove();
                     setShowContent(true);
-                    this.kill();
+                    tl.kill();
                 }
             });
     });
 
+    useGSAP(() => {
+        const main = document.querySelector(".main");
+
+        main?.addEventListener("mousemove", function(e){
+            const xMove = (e.clientX / window.innerWidth - 0.5) * 40;
+            gsap.to(".imagesdiv .text", {
+                x : `${xMove * 0.5}%`,
+            });
+            gsap.to(".sky", {
+                x : xMove,
+            });
+            gsap.to(".bg", {
+                x : xMove,
+            });
+        })
+    }, [showContent])
 
   return (
     <>
@@ -81,13 +98,25 @@ function App() {
                 </div>
             </div>
             <div className="imagesdiv relative overflow-hidden w-full h-screen">
-                <img className='absolute top-0 left-0 w-full h-full object-cover' src='./sky.png' alt=''></img>
-                <img className='absolute top-0 left-0 w-full h-full object-cover' src='./bg.png'></img>
+                <img className='sky absolute scale-[1.5] top-0 left-0 w-full h-full object-cover' src='./sky.png' alt=''></img>
+                <img className='absolute bg scale-[1.3] top-0 left-0 w-full h-full object-cover' src='./bg.png'></img>
+                <div className='text text-white absolute flex flex-col gap-4 top-0 left-1/2 -translate-x-1/2'>
+                    <h1 className='text-[12rem] leading-none -ml-20'>Grand</h1>
+                    <h1 className='text-[12rem] leading-none ml-20'>Theft</h1>
+                    <h1 className='text-[12rem] leading-none -ml-20'>auto</h1>
+                </div>
                 <img
-                    className="absolute -bottom-[32%] left-1/2 -translate-x-1/2 scale-[0.75]"
+                    className="absolute character -bottom-[32%] left-1/2 -translate-x-1/2 scale-[0.75]"
                     src="./girlbg.png"
                     alt=""
-                />
+                />            
+            </div>
+            <div className='btmbar text-white absolute bottom-0 left-0 z-[50] w-full px-10 py-15 bg-gradient-to-t from-black to-transparent'>
+                <div className='flex gap-4 items-center'>
+                    <i className="text-2xl ri-arrow-down-line"></i>
+                    <h3 className="text-xl font-[Helvetica_Now_Display]">Scroll Down</h3>
+                </div>
+                <img className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[65px]' src='./ps5.png' alt=''></img>
             </div>
         </div>
         </div>}
